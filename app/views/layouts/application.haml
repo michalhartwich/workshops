@@ -10,12 +10,12 @@
 
   %body
     %nav.navbar.navbar-default
-      .container-fluid
+      .container
         .navbar-header
           %span.navbar-brand #{AppConfig.workshops_name}
-        %p.navbar-text.navbar-right
-          Links should go here
-    .container-fluid
+        .navbar-right
+          = render 'layouts/links'
+    .container
       .row
         .col-lg-12
           = yield
