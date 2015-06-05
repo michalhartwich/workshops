@@ -13,8 +13,14 @@
       .container
         .navbar-header
           %span.navbar-brand #{AppConfig.workshops_name}
-        .navbar-right
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+        .collapse.navbar-collapse.navbar-right
           = render 'layouts/links'
+  
     .container
       .row
         .col-lg-12
