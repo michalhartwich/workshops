@@ -7,6 +7,6 @@
     .container
       .row
         .col-lg-12
-          .page-header
-            %h1 #{yield(:title)}
+          = render 'layouts/messages'
+          = form_errors_for resource
           = yield

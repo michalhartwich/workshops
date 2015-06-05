@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   add_flash_types :error
+  layout :layout_by_resource
 
   decent_configuration do
     strategy DecentExposure::StrongParametersStrategy
@@ -13,5 +14,13 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :firstname, 
         :lastname, :password, :password_confirmation) }
+    end
+
+    def layout_by_resource
+      if devise_controller?
+        "devise"
+      else
+        "application"
+      end
     end
 end

@@ -1,19 +1,18 @@
-%h1 Listing categories
+-provide :title, 'Listing Categories'
 
-%table.table
+.form-group
+  = create_button 'New Category', new_category_path, icon: 'plus'
+
+%table.table.table-striped.table-hover
   %tr
     %th Name
-    %th
-    %th
-    %th
+    %th Operations
 
-  - categories.each do |category|
+  -categories.each do |category|
     %tr
       %td= category.name
-      %td= link_to 'Show', category
-      %td= link_to 'Edit', edit_category_path(category)
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Category', new_category_path
+      %td
+        .btn-group
+          = show_button category
+          = edit_button edit_category_path(category)if current_user.try(:admin?)
+          = destroy_button category, nil, method: :delete, data: { confirm: 'Are you sure?' } if current_user.try(:admin?)

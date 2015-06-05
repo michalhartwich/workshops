@@ -12,3 +12,16 @@
   .button-single
     float: right
     margin-left: 5px
+
+.details-table tr
+  td, th
+    &:first-child
+      @extend .col-xs-6
+      @extend .col-sm-4
+  td, th
+    &:last-child
+      @extend .col-xs-6
+      @extend .col-sm-8
+
+.alert-alert
+  @extend .alert-danger
