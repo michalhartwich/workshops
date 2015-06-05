@@ -40,4 +40,12 @@ module ApplicationHelper
   def destroy_button(url, text=nil, html_options={})
     create_button text || 'Destroy', url, html_options.merge!(icon: 'trash')
   end
+
+  def back_button(url, text=nil, html_options={})
+    create_button text || 'Back', url, html_options.merge!(icon: 'arrow-left')
+  end
+
+  def new_button(url, text=nil, html_options={})
+    create_button text || 'New', url, html_options.merge!(icon: 'plus')
+  end
 end

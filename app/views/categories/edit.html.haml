@@ -1,7 +1,9 @@
-%h1 Editing category
+-provide :title, "Editing #{category.name}"
+
+.btn-group.form-group
+  = back_button categories_path
+  = show_button category
 
 = render 'form'
 
-= link_to 'Show', category
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+

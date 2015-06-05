@@ -1,17 +1,8 @@
-%p#notice= notice
+-provide :title, category.name
 
-%p
-  %b Name:
-  = category.name
+.btn-group.form-group
+  = create_button 'Back', categories_path, icon: 'arrow-left'
+  = create_button 'Edit', edit_category_path(category), icon: 'pencil'
 
-%p
-  - category.products.each do |product|
-    = product.title
-
-%p
-  %h3 New product
-  = render 'products/form'
-
-= link_to 'Edit', edit_category_path(category)
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+%h3 New product
+= render 'products/form'

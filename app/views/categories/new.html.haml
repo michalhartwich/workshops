@@ -1,5 +1,4 @@
-%h1 New category
-
+-provide :title, 'New Category'
+.form-group
+  = create_button 'Back', categories_path, icon: 'arrow-left'
 = render 'form'
-
-= link_to 'Back', categories_path, class: 'btn btn-primary'
