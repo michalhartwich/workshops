@@ -8,5 +8,8 @@
       -(5-review.rating).times do
         =icon('star-o')
   %em
-    = "#{review.author}, #{time_ago_in_words(review.created_at)} ago"
+    -if controller_name=='users'
+      = "#{review.author}, on #{review.created_at.strftime('%d-%m-%y')}"
+    -else
+      = "#{review.author}, #{time_ago_in_words(review.created_at)} ago"
     
