@@ -1,8 +1,8 @@
 -provide :title, category.name
 
 .btn-group.form-group
-  = create_button 'Back', categories_path, icon: 'arrow-left'
-  = create_button 'Edit', edit_category_path(category), icon: 'pencil'
+  = back_button categories_path
+  = edit_button edit_category_path(category)
 
 %h3 New product
 = render 'products/form'
