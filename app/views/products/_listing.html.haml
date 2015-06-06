@@ -1,0 +1,16 @@
+%table.table.table-striped.table-hover
+  %tr
+    %th Title
+    %th Description
+    %th Price
+    %th Operations
+  - products.each do |product|
+    %tr
+      %td= product.title
+      %td= product.description
+      %td= product.price
+      %td
+        .btn-group
+          = create_button 'Show', category_product_path(product.category, product), icon: 'eye'
+          = create_button 'Edit', edit_category_product_path(product.category, product), icon: 'pencil' if product.user == current_user
+          = create_button 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, icon: 'trash' if product.user == current_user

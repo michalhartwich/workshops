@@ -1,6 +1,6 @@
 = simple_form_for category do |f|
   =form_errors_for category
   .form-group
-    = f.input :name
+    = f.input :name, required: true, autofocus: true
   .form-group
     = create_submit 'Save', class: 'button-single'

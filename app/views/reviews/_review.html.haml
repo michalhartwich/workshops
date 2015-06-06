@@ -1,4 +1,12 @@
-%p= review.content
-%p
-  %b= review.rating
-  %em= review.author
+.well
+  %p
+    = review.content
+  %p
+    %b 
+      -review.rating.times do
+        =icon('star')
+      -(5-review.rating).times do
+        =icon('star-o')
+  %em
+    = "#{review.author}, #{time_ago_in_words(review.created_at)} ago"
+    

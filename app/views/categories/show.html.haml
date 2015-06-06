@@ -4,5 +4,9 @@
   = back_button categories_path
   = edit_button edit_category_path(category)
 
-%h3 New product
-= render 'products/form'
+%h3 Products
+= render 'products/listing', products: category.products
+
+-if user_signed_in?
+  %h3 New product
+  = render 'products/form'
