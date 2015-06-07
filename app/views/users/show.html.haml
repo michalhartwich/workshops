@@ -1,4 +1,8 @@
 -provide :title, "#{user.firstname} #{user.lastname} profile"
-
+= cloudinary_js_config
 %h3 Reviews
 = render reviews
+= form_tag(user, :method => :post) do
+  = cl_image_upload_tag(:image_id, :crop => :limit, :width => 1000, :height => 1000, 
+    :html => {:class => "image_upload"})  
+  = create_submit 'save'                                           

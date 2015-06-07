@@ -15,11 +15,15 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'quiet_assets'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem "jquery-fileupload-rails"
 gem 'therubyracer', platforms: :ruby
 gem 'travis'
 gem 'ffaker'
 gem 'konf'
 gem 'font-awesome-sass', '~> 4.3.0'
+gem 'carrierwave'
+gem 'cloudinary'
 
 group :development do
   gem 'spring'
@@ -37,7 +41,7 @@ group :test do
 end
 
 group :production do
-  gem 'rails_12factor', '0.0.2'
+  gem 'rails_12factor'
 end
 
 ruby '2.1.5'

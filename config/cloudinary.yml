@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dwocgwm9p
+  api_key: '466458144694815'
+  api_secret: mSuOs34hoLoU6Mc-fVYITH9bKoY
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dwocgwm9p
+  api_key: '466458144694815'
+  api_secret: mSuOs34hoLoU6Mc-fVYITH9bKoY
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dwocgwm9p
+  api_key: '466458144694815'
+  api_secret: mSuOs34hoLoU6Mc-fVYITH9bKoY
+  enhance_image_tag: true
+  static_image_support: false
