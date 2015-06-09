@@ -11,6 +11,7 @@
       %td= number_to_currency product.price
       %td
         .btn-group
-          = create_button 'Show', category_product_path(product.category, product), icon: 'eye'
-          = create_button 'Edit', edit_category_product_path(product.category, product), icon: 'pencil' if product.user == current_user
-          = create_button 'Destroy', category_product_path(product.category, product), method: :delete, data: { confirm: 'Are you sure?' }, icon: 'trash' if product.user == current_user
+          = show_button category_product_path(product.category, product)
+          = edit_button edit_category_product_path(product.category, product) if product.user == current_user
+          = destroy_button category_product_path(product.category, product), nil, 
+            method: :delete, data: { confirm: 'Are you sure?' } if product.user == current_user
