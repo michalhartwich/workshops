@@ -2,6 +2,6 @@ class ReviewDecorator < Draper::Decorator
   delegate_all
 
   def author
-    "#{review.user.firstname} #{review.user.lastname}"
+    "#{review.user.fullname}"
   end
 end

@@ -28,7 +28,7 @@
         %td= product.average_rating
     %tr
       %td Owner
-      %td= link_to "#{product.user.firstname} #{product.user.lastname}", product.user
+      %td= link_to "#{product.user.fullname}", product.user
 
 %h3 Reviews
 -if reviews.any?

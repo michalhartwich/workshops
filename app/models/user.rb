@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
   has_many :products, dependent: :destroy
+
+  def fullname
+    "#{firstname} #{lastname}"
+  end
 end
