@@ -50,8 +50,12 @@ module ApplicationHelper
   end
 
   def avatar_for(user)
-    debug user
-    cl_image_tag(user.image_id || "f3_mctbah.png", class: 'img-responsive profile-photo', crop: 'thumb', gravity: 'face',
+    cl_image_tag(user.image_id || "f3_mctbah.png", class: 'img-responsive profile-photo',
       width: 300, height: 300)
+  end
+
+  def small_avatar_for(user)
+    cl_image_tag(user.image_id || "f3_mctbah.png", class: 'img-responsive profile-photo', crop: 'thumb', gravity: 'face',
+      width: 100, height: 100)
   end
 end

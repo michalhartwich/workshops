@@ -1,15 +1,20 @@
 .well
-  %p
-    = review.content
-  %p
-    %b 
-      -review.rating.times do
-        =icon('star')
-      -(5-review.rating).times do
-        =icon('star-o')
-  %em
-    -if controller_name=='users'
-      = "#{review.author}, on #{review.created_at.strftime('%d-%m-%y')}"
-    -else
-      = "#{review.author}, #{time_ago_in_words(review.created_at)} ago"
+  .row
+    .col-xs-3.col-sm-2.img-container
+      = small_avatar_for review.user
+      %p= review.author
+    .col-xs-9.col-sm-10
+      %p
+        = review.content
+      %p
+        %strong 
+          -review.rating.times do
+            =icon('star')
+          -(5-review.rating).times do
+            =icon('star-o')
+      %em
+        -if controller_name=='users'
+          = "#{review.author}, on #{review.created_at.strftime('%d-%m-%y')}"
+        -else
+          = "#{review.author}, #{time_ago_in_words(review.created_at)} ago"
     
