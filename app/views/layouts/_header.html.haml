@@ -8,4 +8,17 @@
         %span.icon-bar
         %span.icon-bar
     .collapse.navbar-collapse.navbar-right
-      = render 'layouts/links'
+      %ul.nav.navbar-nav
+        %li= link_to 'Home', root_path
+        -if user_signed_in?
+          %li.dropdown.hidden-xs 
+            = link_to '#', id: 'user-menu', 'data-toggle' => 'dropdown' do
+              %p
+                = current_user.fullname
+                %span.caret
+              = navbar_avatar_for current_user
+            %ul.dropdown-menu
+              = render 'layouts/links', mode: 'dp'
+          = render 'layouts/links', mode: 'xs'
+        -else
+          = render 'layouts/links'
