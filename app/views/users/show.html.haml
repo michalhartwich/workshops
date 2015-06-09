@@ -16,11 +16,12 @@
         %td E-mail
         %td= user.email
     .edit-button-container
-      = edit_button edit_user_registration_path, 'Edit your profile'
+      = edit_button edit_user_registration_path, 'Edit your profile' if user==current_user
     %p
       %em Last login on #{user.last_sign_in_at.strftime(login_date_format)} from #{user.last_sign_in_ip}
     %p
       %em Registered on #{user.created_at.strftime(login_date_format)}
 
-%h3 Reviews
-= render reviews
+-if reviews.any?
+  %h3 Reviews
+  = render reviews

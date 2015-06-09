@@ -16,12 +16,4 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:email, :firstname, 
         :lastname, :password, :password_confirmation, :current_password, :image_id) }
     end
-
-    # def layout_by_resource
-    #   if devise_controller? && action_name != 'edit'
-    #     "devise"
-    #   else
-    #     "application"
-    #   end
-    # end
 end
