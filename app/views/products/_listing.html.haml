@@ -8,7 +8,7 @@
     %tr
       %td= product.title
       %td= product.description
-      %td= product.price
+      %td= number_to_currency product.price
       %td
         .btn-group
           = create_button 'Show', category_product_path(product.category, product), icon: 'eye'
