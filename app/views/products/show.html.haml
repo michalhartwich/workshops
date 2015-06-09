@@ -22,6 +22,12 @@
       %td Category:
       %td
         %strong= link_to product.category.name, product.category
+    %tr
+      %td Average Rating
+      %td= product.average_rating
+    %tr
+      %td Owner
+      %td= link_to "#{product.user.firstname} #{product.user.lastname}", product.user
 
 %h3 Reviews
 -if reviews.any?
