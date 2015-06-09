@@ -1,0 +1,47 @@
+-provide :title, "Edit #{resource.firstname} #{resource.lastname}"
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = form_errors_for resource
+  = cloudinary_js_config
+  .row
+    .col-sm-3
+      .form-group.img-container
+        .img
+          = cl_image_tag("f3_mctbah.png", class: 'img-responsive profile-photo')
+        .upload_section
+          %form.share_form{:action => "/share", :method => "POST"}
+
+            -# Drag & drop and image selection aread.
+            .drag_area
+              .drag_inner
+                .drag_field
+                  %p
+                    Drop Photo Here
+                  %p.small or
+                  .upload_button_holder  
+                    %input{:type => "submit", :value => "Select Photo", :class => "btn btn-default"}
+                    -# Cloudinary's direct image uploading tag with incoming and eager transformations. Signature is generated on the server side.     
+                    = cl_image_upload_tag(:image_id, :crop => :limit, :width => 1000, :height => 1000, 
+                      :html => {:class => "image_upload"})
+                .upload-details.hide
+                  %p.small Lodaing...
+                  .progress
+                    .progress-bar{role: 'progressbar', style: 'width: 0%'}
+                      %span.sr-only 0%
+      .form-group
+        = create_button 'Change picture', '#', icon: 'photo', id: 'change-picture', class: 'btn-block', 'data-placement' => 'bottom',
+          'data-toggle' => 'popover', 'data-trigger' => 'focus', 'data-content' => 'Upload photo above. Your face will be detected automatically.'
+    .col-sm-9
+      .form-inputs
+        = f.input :email, required: true, autofocus: true
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+        = f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false
+        = f.input :password_confirmation, required: false
+        = f.input :current_password, hint: "we need your current password to confirm your changes", required: true
+      .form-actions
+        = f.button :submit, "Update"
+%h3 Cancel my account
+%p
+  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+= link_to "Back", :back

@@ -1,8 +1,56 @@
 -provide :title, "#{user.firstname} #{user.lastname} profile"
+-login_date_format = '%H:%M:%S %d-%m-%Y'
 = cloudinary_js_config
+.row
+  .col-sm-3
+    = avatar_for(user)
+    = create_button 'Change avatar', '#', id: 'change-avatar', 'data-toggle' => 'modal', 'data-target' => '#avatar-form'
+  .col-sm-9
+    %table.table.user-data
+      %tr
+        %td Firstname
+        %td= user.firstname
+      %tr
+        %td Lastname
+        %td= user.lastname
+      %tr
+        %td E-mail
+        %td= user.email
+    .edit-button-container
+      = edit_button edit_user_registration_path, 'Edit your profile'
+    %p
+      %em Last login on #{user.last_sign_in_at.strftime(login_date_format)} from #{user.last_sign_in_ip}
+    %p
+      %em Registered on #{user.created_at.strftime(login_date_format)}
+
 %h3 Reviews
 = render reviews
-= form_tag(user, :method => :post) do
-  = cl_image_upload_tag(:image_id, :crop => :limit, :width => 1000, :height => 1000, 
-    :html => {:class => "image_upload"})  
-  = create_submit 'save'                                           
+= form_tag(user, :method => :post) do 
+  .progress_bar                
+  .preview
+  #content    
+    .upload_section
+      %form.share_form{:action => "/share", :method => "POST"}
+
+        -# Drag & drop and image selection aread.
+        .drag_area
+          .drag_inner
+            %span 
+              Drop Photo Here
+              %span.small or
+            .upload_button_holder  
+              %input{:type => "submit", :value => "Select Photo", :class => "select_files"}
+              -# Cloudinary's direct image uploading tag with incoming and eager transformations. Signature is generated on the server side.     
+              = cl_image_upload_tag(:image_id, :crop => :limit, :width => 1000, :height => 1000, 
+                :html => {:class => "image_upload"})
+              
+        %a{:href => "#", :class => "details_link"} How does it work?
+        
+        -# Uploading progress bar
+        .upload_progress
+          %span Uploading...
+          .progress_bar
+            .completed
+        
+        .processing_progress
+= render 'users/avatar_form'

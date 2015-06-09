@@ -14,6 +14,7 @@ public/javascripts/translations.js
 config/mongoid.yml
 config/secrets.yml
 config/database.yml
+config/cloudinary.yml
 
 .rbenv-gemsets
 .rbenv-version

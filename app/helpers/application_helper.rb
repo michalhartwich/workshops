@@ -48,4 +48,10 @@ module ApplicationHelper
   def new_button(url, text=nil, html_options={})
     create_button text || 'New', url, html_options.merge!(icon: 'plus')
   end
+
+  def avatar_for(user)
+    debug user
+    cl_image_tag(user.image_id || "f3_mctbah.png", class: 'img-responsive profile-photo', crop: 'thumb', gravity: 'face',
+      width: 300, height: 300)
+  end
 end
