@@ -23,7 +23,11 @@
       %td
         %strong= link_to product.category.name, product.category
 
-
 %h3 Reviews
-= render reviews
-= render 'reviews/form'
+-if reviews.any?
+  = render reviews
+-else
+  %em No reviews yet.
+-if user_signed_in?
+  = render 'reviews/form'
+

@@ -3,16 +3,19 @@
 .form-group
   = new_button new_category_path, 'New Category' if current_user.try(:admin?)
 
-%table.table.table-striped.table-hover
-  %tr
-    %th Name
-    %th Operations
-
-  -categories.each do |category|
+- if categories.any?
+  %table.table.table-striped.table-hover
     %tr
-      %td= category.name
-      %td
-        .btn-group
-          = show_button category
-          = edit_button edit_category_path(category) if current_user.try(:admin?)
-          = destroy_button category, nil, method: :delete, data: { confirm: 'Are you sure?' } if current_user.try(:admin?)
+      %th Name
+      %th Operations
+
+    -categories.each do |category|
+      %tr
+        %td= category.name
+        %td
+          .btn-group
+            = show_button category
+            = edit_button edit_category_path(category) if current_user.try(:admin?)
+            = destroy_button category, nil, method: :delete, data: { confirm: 'Are you sure?' } if current_user.try(:admin?)
+-else
+  %em No categories yet.

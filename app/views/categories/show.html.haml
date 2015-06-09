@@ -5,8 +5,12 @@
   = edit_button edit_category_path(category), 'Edit category'
   = new_button '#', 'Add product', id: 'new-product'
 
-%h3 Products
-= render 'products/listing', products: category.products
+-if category.products.any?
+  %h3 Products
+  = render 'products/listing', products: category.products
+-else
+  .clearfix
+  %em No products in this category yet.
 
 -if user_signed_in?
   #new-product-form.hide
