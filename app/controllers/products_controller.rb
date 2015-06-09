@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
   expose(:products)
   expose(:product)
   expose(:review) { Review.new }
-  expose_decorated(:reviews, ancestor: :product)
+  expose_decorated(:reviews, ancestor: :product) { |r| r.order('created_at DESC') }
 
   def index
   end
