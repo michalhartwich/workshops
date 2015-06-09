@@ -5,6 +5,10 @@
 r = ->
   $('[data-toggle="popover"]').popover()
 
+  showLoading = ->
+    $('.drag_inner > div').toggleClass 'hide'
+    $('.img-container').height $('.profile-photo').height()
+
   $('.cloudinary-fileupload').bind 'cloudinarydone', (e, data) ->
     console.log data.result
     $('.img').html $.cloudinary.image(data.result.public_id,
@@ -32,8 +36,10 @@ r = ->
   $('.drag_area').bind 'drop', ->
     $(@).removeClass 'hover'
     $(@).removeClass 'hover_text'
-    $('.drag_inner > div').toggleClass 'hide'
-    $('.img-container').height $('.profile-photo').height()
+    showLoading()
+
+  $('.image_upload').change ->
+    showLoading()
 
   $('#change-picture').click (e) ->
     e.preventDefault()
