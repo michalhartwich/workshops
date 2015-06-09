@@ -1,8 +1,8 @@
 -provide :title, product.title
 
 .btn-group.form-group
-  = create_button 'Back', category_products_path, icon: 'arrow-left'
-  = create_button 'Edit', edit_category_product_path(category, product), icon: 'pencil' if product.user == current_user
+  = back_button category_products_path
+  = edit_button edit_category_product_path(category, product) if product.user == current_user
 
 %table.table.table-.details-table
   %thead
