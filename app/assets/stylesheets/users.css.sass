@@ -6,10 +6,6 @@ table.user-data tr:first-child td
 .edit-button-container
   margin-bottom: 20px
 
-.upload_section
-  position: absolute
-  top: 0
-
 .img-container
   position: relative
 
@@ -17,13 +13,75 @@ table.user-data tr:first-child td
     width: 100%
     height: auto
 
-.progress
-  width: 80%
-  margin: 0 auto
-
 .author
   font-size: 16px
   font-weight: bold
   text-align: center
   display: block
   margin-top: 10px
+
+.upload-section
+  position: relative
+  width: 100%
+  top: 0
+  display: none
+  
+.drag-area
+  border: 4px dashed $gray-light
+  margin: 0 auto
+  width: 100%
+  padding-bottom: calc(100% - 8px) 
+  
+  .drag-inner
+    position: absolute
+    top: 50%
+    transform: translateY(-50%) translateX(-50%)
+    left: 50%
+    width: 100%
+    p
+      font-weight: bold
+      font-size: 18px
+      color: $gray-light
+      line-height: 1em
+      text-align: center
+      &.small
+        float: none
+        font-weight: normal
+        font-size: 14px
+        padding: 0 53px
+        line-height: 24px
+    .progress
+      width: 80%
+      margin: 0 auto
+      
+  .upload-button-holder
+    position: relative  
+    height: 38px
+    width: 70%
+    margin: 0 auto
+    input[type=submit]
+      
+                 
+    &:hover
+      input[type=submit]           
+        @include btn-styles($gray-lighter)
+        
+    input
+      cursor: pointer
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 38px
+      margin: 0
+      padding: 0
+    .cloudinary-fileupload
+      opacity: 0
+      filter: alpha(opacity=0)
+
+
+.hover
+  border-color: $brand-success !important
+
+  p
+    color: $brand-success !important

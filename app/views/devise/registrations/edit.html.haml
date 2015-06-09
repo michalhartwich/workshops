@@ -9,14 +9,14 @@
       .form-group.img-container
         .img
           = avatar_for(resource)
-        .upload_section
-          .drag_area
-            .drag_inner
-              .drag_field
+        .upload-section
+          .drag-area
+            .drag-inner
+              .drag-field
                 %p
                   Drop Photo Here
                 %p.small or
-                .upload_button_holder  
+                .upload-button-holder  
                   %input{:type => "submit", :value => "Select Photo", :class => "btn btn-default"} 
                   = cl_image_upload_tag(:image_id, :crop => :thumb, :width => 300, :height => 300, :gravity => :face,
                     :html => {:class => "image_upload"})
