@@ -15,8 +15,6 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'quiet_assets'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem "jquery-fileupload-rails"
 gem 'therubyracer', platforms: :ruby
 gem 'travis'
 gem 'ffaker'
