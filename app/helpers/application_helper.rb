@@ -26,7 +26,8 @@ module ApplicationHelper
   def create_button(text, url, html_options={})
     mode = html_options[:mode] || 'default'
     html_options.merge! class: "btn btn-#{mode} #{html_options[:class]}"
-    link_to icon(html_options[:icon], text), url, html_options
+    link_to icon(html_options[:icon], content_tag(:span, text, class: 'hidden-xs')), 
+      url, html_options
   end
 
   def show_button(url, text=nil, html_options={})
