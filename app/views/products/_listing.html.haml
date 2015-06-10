@@ -12,6 +12,6 @@
       %td
         .btn-group
           = show_button category_product_path(product.category, product)
-          = edit_button edit_category_product_path(product.category, product) if product.user == current_user
+          = edit_button edit_category_product_path(product.category, product) if product.user == current_user || current_user.try(:admin?)
           = destroy_button category_product_path(product.category, product), nil, 
-            method: :delete, data: { confirm: 'Are you sure?' } if product.user == current_user
+            method: :delete, data: { confirm: 'Are you sure?' } if product.user == current_user || current_user.try(:admin?)
