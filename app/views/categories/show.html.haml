@@ -2,8 +2,8 @@
 
 .btn-group.form-group
   = back_button categories_path
-  = edit_button edit_category_path(category), 'Edit category'
-  = new_button '#', 'Add product', id: 'new-product'
+  = edit_button edit_category_path(category), 'Edit category' if current_user.try(:admin?)
+  = new_button '#', 'Add product', id: 'new-product' if user_signed_in?
 
 -if category.products.any?
   %h3 Products
