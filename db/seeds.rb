@@ -7,22 +7,22 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 admin = User.create(firstname: 'John', lastname: 'Doe', email: 'john.doe@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow', image_id: 'eaywz1u3boxdk5ujwiau', admin: true)
+  password_confirmation: 'dontknow', image_id: 'eaywz1u3boxdk5ujwiau', admin: true, last_sign_in_at: Time.now)
 
 cary = User.create(firstname: 'Cary', lastname: 'Adkins', email: 'cary.adkins@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow')
+  password_confirmation: 'dontknow', last_sign_in_at: Time.now)
 
 essie = User.create(firstname: 'Essie', lastname: 'Foster', email: 'essie.foster@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow')
+  password_confirmation: 'dontknow', last_sign_in_at: Time.now)
 
 ron = User.create(firstname: 'Ron', lastname: 'Jones', email: 'ron.jones@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow')
+  password_confirmation: 'dontknow', last_sign_in_at: Time.now)
 
 kay = User.create(firstname: 'Kay', lastname: 'Holt', email: 'kay.holt@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow')
+  password_confirmation: 'dontknow', last_sign_in_at: Time.now)
 
 kristin = User.create(firstname: 'Kristin', lastname: 'Page', email: 'kristin.page@example.com', password: 'dontknow',
-  password_confirmation: 'dontknow')
+  password_confirmation: 'dontknow', last_sign_in_at: Time.now)
 
 books = Category.create(name: 'Books')
 
